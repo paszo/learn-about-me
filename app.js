@@ -1,7 +1,12 @@
 const express = require('express');
 const routes = require('./routes');
+const mongoose = require('mongoose');
 
 const app = express();
+
+const dbstring = process.env.LEARNABOUTMEDB;
+
+mongoose.connect(dbstring, {useNewUrlParser: true, useUnifiedTopology: true});
 
 app.use(routes);
 
